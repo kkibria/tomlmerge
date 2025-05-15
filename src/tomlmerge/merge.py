@@ -62,6 +62,7 @@ def merge_directory_toml(input_dir: str, strategy: str, conflicts: list) -> dict
     merged = {}
     for toml_file in files:
         with open(toml_file, 'rb') as f:
+            print(f"loading {toml_file}...")
             data = tomllib.load(f)
         merged = merge_dicts(merged, data, strategy, conflicts)
     return merged
